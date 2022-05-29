@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_29_152559) do
+ActiveRecord::Schema.define(version: 2022_05_29_153111) do
 
   create_table "merchants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2022_05_29_152559) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_merchants_on_email", unique: true
+  end
+
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.decimal "amount", precision: 10, null: false
+    t.timestamp "completed_at"
+    t.bigint "shopper_id"
+    t.bigint "merchant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_orders_on_merchant_id"
+    t.index ["shopper_id"], name: "index_orders_on_shopper_id"
   end
 
   create_table "shoppers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
