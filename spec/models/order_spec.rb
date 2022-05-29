@@ -9,5 +9,6 @@ RSpec.describe Order, type: :model do
   describe 'associations' do
     it { should belong_to(:merchant) }
     it { should belong_to(:shopper) }
+    it { should belong_to(:disbursement).optional }
   end
 end

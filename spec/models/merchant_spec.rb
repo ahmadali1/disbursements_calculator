@@ -36,5 +36,6 @@ RSpec.describe Merchant, type: :model do
 
   describe 'associations' do
     it { should have_many(:orders) }
+    it { should have_many(:disbursements) }
   end
 end
