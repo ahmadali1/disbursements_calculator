@@ -7,7 +7,7 @@ gem 'rails', '~> 6.1.6'
 gem 'mysql2', '~> 0.5'
 gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'sidekiq'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
