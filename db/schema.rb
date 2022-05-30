@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_29_163210) do
+ActiveRecord::Schema.define(version: 2022_05_30_155704) do
 
   create_table "disbursements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "merchant_id"
     t.integer "week", null: false
     t.integer "year", null: false
-    t.decimal "amount", precision: 10, null: false
+    t.float "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["merchant_id", "year", "week"], name: "index_disbursements_on_merchant_id_and_year_and_week", unique: true
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_05_29_163210) do
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.decimal "amount", precision: 10, null: false
+    t.float "amount", null: false
     t.timestamp "completed_at"
     t.bigint "shopper_id"
     t.bigint "merchant_id"

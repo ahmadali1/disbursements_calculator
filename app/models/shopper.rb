@@ -1,5 +1,5 @@
 class Shopper < ApplicationRecord
-  EMAIL_REGEX = /.+@.+\..+/.freeze
+  EMAIL_REGEX = /.+@.+\..+/.freeze # URI::MailTo::EMAIL_REGEXP can also be used
 
   has_many :orders
   validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX }
